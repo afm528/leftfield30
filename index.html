@@ -355,18 +355,20 @@
   const TITLE = "Left Field Online Reunion";
   const DETAILS = "Join from the LinkedIn event: " + CONFIG.linkedinEvent + "\nShare a tribute with #LeftField30.";
 
-  document.getElementById("rsvp").href = CONFIG.linkedinEvent;
-  document.getElementById("join").href = CONFIG.linkedinEvent;
-  document.getElementById("profile").href = CONFIG.profile;
-  document.getElementById("profile2").href = CONFIG.profile;
+  // Skip any link that has been removed from the page
+  const setHref = (id, url) => { const el = document.getElementById(id); if (el) el.href = url; };
+  setHref("rsvp", CONFIG.linkedinEvent);
+  setHref("join", CONFIG.linkedinEvent);
+  setHref("profile", CONFIG.profile);
+  setHref("profile2", CONFIG.profile);
   document.querySelectorAll(".form-link").forEach(a => a.href = CONFIG.submitForm);
 
-  document.getElementById("gcal").href =
+  setHref("gcal",
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
     "&text=" + encodeURIComponent(TITLE) +
     "&dates=" + START + "/" + END +
     "&details=" + encodeURIComponent(DETAILS) +
-    "&location=" + encodeURIComponent(CONFIG.linkedinEvent);
+    "&location=" + encodeURIComponent(CONFIG.linkedinEvent));
 
   const ics = [
     "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LeftField30//EN","BEGIN:VEVENT",
@@ -377,7 +379,7 @@
     "LOCATION:" + CONFIG.linkedinEvent,"URL:" + CONFIG.linkedinEvent,
     "END:VEVENT","END:VCALENDAR"
   ].join("\r\n");
-  document.getElementById("ics").href = URL.createObjectURL(new Blob([ics], {type:"text/calendar"}));
+  setHref("ics", URL.createObjectURL(new Blob([ics], {type:"text/calendar"})));
 
   // Show the start time in the visitor's own time zone
   try {
