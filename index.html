@@ -253,7 +253,7 @@
         <p class="date">Saturday,<br>October 17, 2026</p>
         <p class="time">12:00–1:30 p.m. PDT</p>
         <p class="zones">3:00 p.m. EDT · 8:00 p.m. London<span id="localtime"></span></p>
-        <p class="where">On Google Meet · <a id="meet" href="#">join the call</a></p>
+        <p class="where">Online · <a id="join" href="#">join from the LinkedIn event</a></p>
       </div>
     </div>
   </section>
@@ -346,7 +346,6 @@
   // ===== Edit these values =====
   const CONFIG = {
     linkedinEvent: "https://www.linkedin.com/events/leftfield307511138420891594752/",
-    meetLink:      "https://meet.google.com/REPLACE",
     profile:       "https://www.linkedin.com/in/mcmahonsf/",
     submitForm:    "https://docs.google.com/forms/d/e/1FAIpQLSem-1lPQhOcq5ejDdMumttFsKSOi09uf-fIwovaOpSPi7QIhw/viewform"
   };
@@ -354,10 +353,10 @@
 
   const START = "20261017T190000Z", END = "20261017T203000Z"; // 12:00–1:30 PDT
   const TITLE = "Left Field Online Reunion";
-  const DETAILS = "Join on Google Meet: " + CONFIG.meetLink + "\nShare a tribute with #LeftField30.";
+  const DETAILS = "Join from the LinkedIn event: " + CONFIG.linkedinEvent + "\nShare a tribute with #LeftField30.";
 
   document.getElementById("rsvp").href = CONFIG.linkedinEvent;
-  document.getElementById("meet").href = CONFIG.meetLink;
+  document.getElementById("join").href = CONFIG.linkedinEvent;
   document.getElementById("profile").href = CONFIG.profile;
   document.getElementById("profile2").href = CONFIG.profile;
   document.querySelectorAll(".form-link").forEach(a => a.href = CONFIG.submitForm);
@@ -367,7 +366,7 @@
     "&text=" + encodeURIComponent(TITLE) +
     "&dates=" + START + "/" + END +
     "&details=" + encodeURIComponent(DETAILS) +
-    "&location=" + encodeURIComponent(CONFIG.meetLink);
+    "&location=" + encodeURIComponent(CONFIG.linkedinEvent);
 
   const ics = [
     "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LeftField30//EN","BEGIN:VEVENT",
@@ -375,7 +374,7 @@
     "DTSTART:" + START,"DTEND:" + END,
     "SUMMARY:" + TITLE,
     "DESCRIPTION:" + DETAILS.replace(/\n/g, "\\n"),
-    "LOCATION:" + CONFIG.meetLink,"URL:" + CONFIG.meetLink,
+    "LOCATION:" + CONFIG.linkedinEvent,"URL:" + CONFIG.linkedinEvent,
     "END:VEVENT","END:VCALENDAR"
   ].join("\r\n");
   document.getElementById("ics").href = URL.createObjectURL(new Blob([ics], {type:"text/calendar"}));
