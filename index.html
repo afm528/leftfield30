@@ -161,6 +161,15 @@
   #count{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--brick)}
   .wall{display:grid;gap:24px;grid-template-columns:repeat(auto-fill, minmax(min(100%, 420px), 1fr));align-items:start}
   .wall iframe{display:block;width:100%;max-width:100%;border:0;border-radius:var(--radius);background:#fff}
+  .memory{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--lime);border-radius:var(--radius);overflow:hidden}
+  .memory .pic{display:block;background:var(--black)}
+  .memory .pic img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain}
+  .memory .body{padding:20px 22px 22px}
+  .memory .who{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 112;font-size:1.15rem;margin:0 0 8px}
+  .memory .msg{margin:0 0 12px;white-space:pre-line}
+  .memory .why{margin:0;color:var(--muted);font-size:1rem;white-space:pre-line}
+  .memory .why::before{content:"Why it matters: ";font-weight:600;color:var(--brick)}
+  .memory .files{margin:12px 0 0;font-size:.95rem}
   .empty{grid-column:1/-1;border:2px dashed var(--line);border-radius:var(--radius);padding:48px 24px;text-align:center;background:var(--surface)}
   .empty svg{width:64px;height:64px;margin:0 auto 16px;display:block}
   .empty strong{display:block;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 112;font-size:1.3rem;margin-bottom:6px}
@@ -347,7 +356,9 @@
   const CONFIG = {
     linkedinEvent: "https://www.linkedin.com/events/leftfield307511138420891594752/",
     profile:       "https://www.linkedin.com/in/mcmahonsf/",
-    submitForm:    "https://docs.google.com/forms/d/e/1FAIpQLSem-1lPQhOcq5ejDdMumttFsKSOi09uf-fIwovaOpSPi7QIhw/viewform"
+    submitForm:    "https://docs.google.com/forms/d/e/1FAIpQLSem-1lPQhOcq5ejDdMumttFsKSOi09uf-fIwovaOpSPi7QIhw/viewform",
+    // Published CSV of the "Public" tab (approved form responses only). Leave "" to show none.
+    memoriesCsv:   ""
   };
   // ===================================
 
@@ -392,11 +403,91 @@
   } catch (e) {}
 
   // Tribute count and empty state
-  const n = document.querySelectorAll("#wall iframe").length;
-  if (n > 0) {
-    document.getElementById("empty").remove();
-    document.getElementById("count").textContent = n + (n === 1 ? " tribute so far" : " tributes so far");
+  function updateCount() {
+    const n = document.querySelectorAll("#wall iframe, #wall .memory").length;
+    if (n > 0) {
+      document.getElementById("empty")?.remove();
+      document.getElementById("count").textContent = n + (n === 1 ? " tribute so far" : " tributes so far");
+    }
   }
+  updateCount();
+
+  // Approved form submissions, read from the published "Public" tab of the responses Sheet.
+  // Columns are matched by header text, so reordering the Sheet is fine.
+  function parseCsv(text) {
+    const rows = []; let row = [], field = "", q = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') q = false;
+        else field += c;
+      } else if (c === '"') q = true;
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") i++;
+        row.push(field); rows.push(row); row = []; field = "";
+      } else field += c;
+    }
+    if (field || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+
+  async function loadMemories() {
+    if (!CONFIG.memoriesCsv) return;
+    try {
+      const res = await fetch(CONFIG.memoriesCsv, {cache: "no-store"});
+      if (!res.ok) return;
+      const [head, ...rows] = parseCsv(await res.text());
+      const col = word => head.findIndex(h => h.toLowerCase().includes(word));
+      const iName = col("name"), iMsg = col("say"), iFile = col("upload"), iWhy = col("special");
+      const wall = document.getElementById("wall");
+      const anchor = wall.querySelector("iframe, #empty");
+      rows.reverse().forEach(r => {   // newest first
+        const name = (r[iName] || "").trim();
+        if (!name) return;
+        const card = el("article", "memory");
+        const ids = (r[iFile] || "").split(/,\s*/).map(u => (u.match(/[?&]id=([\w-]+)|\/d\/([\w-]+)/) || [])).map(m => m[1] || m[2]).filter(Boolean);
+        if (ids.length) {
+          const a = el("a", "pic");
+          a.href = "https://drive.google.com/file/d/" + ids[0] + "/view";
+          a.target = "_blank"; a.rel = "noopener";
+          const img = el("img");
+          img.src = "https://drive.google.com/thumbnail?id=" + ids[0] + "&sz=w1000";
+          img.alt = "Shared by " + name;
+          img.loading = "lazy";
+          img.onerror = () => a.remove();
+          a.append(img);
+          card.append(a);
+        }
+        const body = el("div", "body");
+        body.append(el("p", "who", name));
+        if (r[iMsg]?.trim()) body.append(el("p", "msg", r[iMsg].trim()));
+        if (ids.length && r[iWhy]?.trim()) body.append(el("p", "why", r[iWhy].trim()));
+        if (ids.length > 1) {
+          const p = el("p", "files");
+          ids.forEach((id, k) => {
+            const a = el("a", null, "File " + (k + 1));
+            a.href = "https://drive.google.com/file/d/" + id + "/view";
+            a.target = "_blank"; a.rel = "noopener";
+            p.append(a, " ");
+          });
+          body.append(p);
+        }
+        card.append(body);
+        wall.insertBefore(card, anchor);
+      });
+      updateCount();
+    } catch (e) {}
+  }
+  loadMemories();
 </script>
 </body>
 </html>
