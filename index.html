@@ -269,7 +269,7 @@
         <li><strong>Make it public</strong>Only public posts can be shown on this page.</li>
       </ol>
       <div class="aside measure">
-        <p><strong>Not on LinkedIn, or would rather not post?</strong> Email your video or note to <a id="email" href="#">the organizer</a> and it will be posted here with your permission.</p>
+        <p><strong>Not on LinkedIn, or would rather not post?</strong> Send your video or note through <a class="form-link" href="#" target="_blank" rel="noopener">this form</a> and it will be posted here with your permission.</p>
       </div>
     </div>
   </section>
@@ -278,7 +278,7 @@
     <div class="wrap">
       <span class="eyebrow">From the archive</span>
       <h2>leftfield.net, circa 1998</h2>
-      <p class="intro measure">Most of the old site is gone, but the Wayback Machine kept a few pages, and somebody kept the t-shirt. Got more? Old decks, photos, business cards? Send them in.</p>
+      <p class="intro measure">Most of the old site is gone, but the Wayback Machine kept a few pages, and somebody kept the t-shirt. Got more? Old decks, photos, business cards? <a class="form-link" href="#" target="_blank" rel="noopener">Send them in</a>.</p>
       <div class="shots">
         <a class="shot" href="https://web.archive.org/web/19980120000000/http://leftfield.net/" target="_blank" rel="noopener">
           <div class="screen s98" aria-hidden="true">
@@ -343,12 +343,12 @@
 </footer>
 
 <script>
-  // ===== Edit these four values =====
+  // ===== Edit these values =====
   const CONFIG = {
     linkedinEvent: "https://www.linkedin.com/events/leftfield307511138420891594752/",
     meetLink:      "https://meet.google.com/REPLACE",
-    profile:       "https://www.linkedin.com/in/REPLACE",
-    email:         "REPLACE@example.com"
+    profile:       "https://www.linkedin.com/in/mcmahonsf/",
+    submitForm:    "https://docs.google.com/forms/d/e/1FAIpQLSem-1lPQhOcq5ejDdMumttFsKSOi09uf-fIwovaOpSPi7QIhw/viewform"
   };
   // ===================================
 
@@ -360,9 +360,7 @@
   document.getElementById("meet").href = CONFIG.meetLink;
   document.getElementById("profile").href = CONFIG.profile;
   document.getElementById("profile2").href = CONFIG.profile;
-  const mail = document.getElementById("email");
-  mail.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("#LeftField30 tribute");
-  mail.textContent = CONFIG.email;
+  document.querySelectorAll(".form-link").forEach(a => a.href = CONFIG.submitForm);
 
   document.getElementById("gcal").href =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +

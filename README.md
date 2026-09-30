@@ -30,4 +30,4 @@ It's one static file, `index.html`: HTML, CSS and a little JavaScript, with no b
 - Check it on a phone-width screen before submitting.
 - Facts about Left Field's history should be ones you can vouch for.
 
-Want to share a memory instead of editing code? Post on LinkedIn with **#LeftField30**, or use the email link on the site.
+Want to share a memory instead of editing code? Post on LinkedIn with **#LeftField30**, or use the submission form linked on the site.
