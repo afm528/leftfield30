@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Left Field is 30</title>
+<meta name="description" content="Left Field opened on October 17, 1996. Share what it meant to you, and join the online reunion on October 17, 2026.">
+<meta property="og:title" content="Left Field is 30">
+<meta property="og:description" content="Share what Left Field meant to you with #LeftField30, and join the online reunion on Saturday, October 17 at noon PDT.">
+<meta property="og:type" content="website">
+<!-- Add a share image once you have one (1200x627 works best on LinkedIn):
+<meta property="og:image" content="https://YOUR-SITE/share.jpg"> -->
+<meta name="theme-color" content="#0B0B0B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='49' fill='%23B7E300'/><circle cx='50' cy='50' r='37' fill='%239E4A47'/><g fill='%23B7E300'><rect x='27' y='14' width='10' height='66'/><rect x='27' y='66' width='31' height='9'/><rect x='63' y='22' width='10' height='44'/><rect x='41' y='22' width='32' height='9'/><rect x='49' y='43' width='24' height='9'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Left Field brand palette (from the 1998/1999 sites and the t-shirt) ===== */
+  :root{
+    --lime:#B7E300;        /* 1998 homepage + logo ring */
+    --lime-ink:#1B2200;    /* text on lime */
+    --brick:#9E4A47;       /* logo field + tagline on the t-shirt */
+    --brick-bright:#D27A72;/* brick, lifted for use on black */
+    --wire:#2EE63A;        /* the "wired" green rule + reversed F on the 1999 site */
+    --black:#0B0B0B;
+    --paper:#F3F0E8;       /* t-shirt cotton */
+    --bg:var(--paper); --surface:#FFFFFF; --ink:#141414; --muted:#5B5754;
+    --line:rgba(20,20,20,.14);
+    --radius:6px;
+    --display:"Archivo", "Arial Black", Arial, sans-serif;
+    --text:"Jost", "Futura", "Century Gothic", "Avenir", sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141312; --surface:#1D1B19; --ink:#EDE9E0; --muted:#A39D95; --line:rgba(237,233,224,.14); --brick:#D27A72; }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:1.15rem;font-weight:400;line-height:1.6}
+  a{color:inherit;text-underline-offset:3px}
+  :focus-visible{outline:3px solid var(--wire);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  .measure{max-width:38rem}
+  p{margin:0 0 16px}
+  .muted{color:var(--muted)}
+
+  /* Reversed F — the signature of the wordmark */
+  .rf{display:inline-block;transform:scaleX(-1)}
+
+  /* ===== Top bar: a nod to the 1999 homepage header ===== */
+  .topbar{background:#fff;color:#111;border-bottom:4px solid var(--wire);font-size:.85rem;line-height:1.35}
+  .topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:12px;padding-bottom:12px}
+  .topbar nav{display:flex;gap:20px;font-weight:600}
+  .topbar nav a{text-decoration:none}
+  .topbar nav a:hover{text-decoration:underline}
+  .topbar .addr{text-align:right;font-weight:500;color:#444}
+  @media (max-width:640px){.topbar .addr{display:none}}
+
+  /* ===== Hero ===== */
+  .hero{background:var(--black);color:#fff;text-align:center;padding:72px 0 0;overflow:hidden}
+  .badge{width:clamp(120px, 20vw, 168px);height:auto;display:block;margin:0 auto 36px}
+  .badge .spin{transform-origin:50% 50%;animation:roll 1.4s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes roll{from{transform:rotate(-200deg) scale(.6);opacity:0}to{transform:none;opacity:1}}
+  @media (prefers-reduced-motion: reduce){.badge .spin{animation:none}}
+  .wordmark{margin:0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;
+    font-size:clamp(1.5rem, 4.6vw, 2.9rem);letter-spacing:.62em;margin-right:-.62em;line-height:1}
+  .wordmark .rf{color:var(--wire)}
+  .tagline{margin:18px 0 0;font-weight:300;font-size:clamp(1.1rem, 2.4vw, 1.6rem);letter-spacing:.01em;color:#EDEDED}
+  .tagline sup{font-size:.45em;vertical-align:super;letter-spacing:0}
+
+  .thirty{margin:64px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;max-width:900px}
+  .thirty .yr{font-family:var(--display);font-weight:600;font-variation-settings:"wdth" 110;font-size:clamp(.95rem, 2vw, 1.2rem);letter-spacing:.3em;color:#9A9A9A}
+  .thirty .yr:first-child{text-align:right}
+  .thirty .yr:last-child{text-align:left}
+  .thirty h1{margin:0;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;
+    font-size:clamp(5.5rem, 22vw, 15rem);line-height:.82;letter-spacing:-.04em;color:var(--lime)}
+  .thirty h1 span{display:block;font-size:.16em;letter-spacing:.35em;margin-right:-.35em;color:#fff;line-height:1.2;margin-top:.35em;font-variation-settings:"wdth" 120}
+  .hero .lead{margin:40px auto 0;max-width:40rem;font-size:clamp(1.1rem, 2vw, 1.3rem);color:#DADADA;font-weight:300}
+  .hero .lead strong{color:#fff;font-weight:500}
+  .hero .actions{justify-content:center;margin-top:36px}
+  .rule{height:14px;margin-top:72px;background:
+      linear-gradient(90deg, var(--lime) 0 33.33%, var(--brick-bright) 33.33% 66.66%, var(--wire) 66.66%)}
+  @media (max-width:560px){
+    .thirty{grid-template-columns:1fr;gap:10px}
+    .thirty .yr:first-child,.thirty .yr:last-child{text-align:center}
+    .thirty .yr:last-child{order:3}
+  }
+
+  /* ===== Buttons ===== */
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-block;padding:14px 24px;border-radius:2px;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 115;
+    font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s, background .15s, color .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-lime{background:var(--lime);color:var(--lime-ink)}
+  .btn-black{background:var(--black);color:#fff}
+  .btn-ghost{border-color:currentColor;background:transparent;color:inherit}
+  .btn-ghost:hover{background:currentColor}
+  .btn-ghost.on-dark:hover{color:var(--black);background:#fff;border-color:#fff}
+  .btn-ghost.on-lime:hover{color:var(--lime);background:var(--lime-ink);border-color:var(--lime-ink)}
+  .btn-ghost.on-paper:hover{color:var(--bg);background:var(--ink);border-color:var(--ink)}
+
+  /* ===== Sections ===== */
+  section{padding:88px 0}
+  .eyebrow{display:block;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 120;font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:14px;color:var(--brick)}
+  h2{margin:0 0 22px;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 118;font-size:clamp(2rem, 5vw, 3.3rem);line-height:1.02;letter-spacing:-.015em}
+
+  /* Reunion — the 1998 lime */
+  .reunion{background:var(--lime);color:var(--lime-ink)}
+  .reunion .eyebrow{color:var(--lime-ink);opacity:.75}
+  .reunion-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:start}
+  @media (max-width:820px){.reunion-grid{grid-template-columns:1fr;gap:32px}}
+  .ticket{background:var(--black);color:#fff;border-radius:var(--radius);padding:28px 28px 24px;position:relative}
+  .ticket::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;border-radius:var(--radius) var(--radius) 0 0;background:var(--wire)}
+  .ticket .date{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 120;font-size:clamp(1.5rem, 3vw, 2rem);line-height:1.1;margin:6px 0 8px}
+  .ticket .time{font-size:1.2rem;margin:0 0 4px}
+  .ticket .zones{color:#A9A9A9;font-size:1rem;margin:0 0 18px}
+  .ticket .where{border-top:1px dashed rgba(255,255,255,.3);padding-top:16px;margin:0;font-size:1rem}
+  .ticket .where a{color:var(--wire)}
+  .ticket .label{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 120;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--lime)}
+  .reunion .actions{margin-top:28px}
+
+  /* Share */
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:36px 0 36px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))}
+  ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px 26px;font-size:1.05rem}
+  ol.steps li::before{content:counter(s, decimal-leading-zero);display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;
+    background:var(--brick);color:#fff;font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 110;font-size:1.05rem;margin-bottom:16px;
+    box-shadow:0 0 0 5px var(--lime)}
+  ol.steps strong{display:block;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 110;font-size:1.15rem;margin-bottom:6px}
+  .aside{border-left:6px solid var(--lime);background:var(--surface);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px}
+  .aside p:last-child{margin:0}
+
+  /* Archive */
+  .archive{background:var(--black);color:#fff}
+  .archive .eyebrow{color:var(--lime)}
+  .archive .intro{color:#CFCFCF;font-weight:300}
+  .shots{display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr));gap:24px;margin-top:40px}
+  .shot{display:block;text-decoration:none;border-radius:var(--radius);overflow:hidden;border:1px solid #2A2A2A;transition:transform .2s, border-color .2s}
+  .shot:hover{transform:translateY(-4px);border-color:var(--wire)}
+  .shot .screen{aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center}
+  .shot .cap{background:#151515;padding:14px 18px;display:flex;justify-content:space-between;gap:12px;font-size:.95rem}
+  .shot .cap b{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:.08em}
+  .shot .cap span{color:#9A9A9A}
+  .s98{background:var(--lime);color:#111;font-family:Georgia, "Times New Roman", serif;font-size:1.05rem}
+  .s98 .frame{width:46%;aspect-ratio:2.4/1;border:1px solid #6E8A00}
+  .s99{background:#000;color:#fff;position:relative}
+  .s99::before{content:"";position:absolute;top:0;left:0;right:0;height:22%;background:#fff;border-bottom:3px solid var(--wire)}
+  .s99 .wm{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;letter-spacing:.55em;margin-right:-.55em;font-size:clamp(.8rem, 1.6vw, 1rem);margin-top:14%}
+  .s99 .wm .rf{color:var(--wire)}
+  .s99 .tg{font-weight:300;font-size:.9rem;color:#DDD}
+  .sshirt{background:var(--paper);color:#111}
+  .sshirt svg{width:30%;height:auto}
+  .sshirt .wm{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;letter-spacing:.55em;margin-right:-.55em;font-size:clamp(.75rem, 1.4vw, .95rem)}
+  .sshirt .wm .rf{color:var(--brick)}
+  .sshirt .tg{font-weight:300;font-size:.85rem;color:#9E4A47;margin-top:-6px}
+  @media (prefers-color-scheme: dark){ .sshirt .wm .rf{color:#9E4A47} }
+
+  /* Tributes */
+  .tributes-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:32px}
+  .tributes-head h2{margin:0}
+  #count{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--brick)}
+  .wall{display:grid;gap:24px;grid-template-columns:repeat(auto-fill, minmax(min(100%, 420px), 1fr));align-items:start}
+  .wall iframe{display:block;width:100%;max-width:100%;border:0;border-radius:var(--radius);background:#fff}
+  .empty{grid-column:1/-1;border:2px dashed var(--line);border-radius:var(--radius);padding:48px 24px;text-align:center;background:var(--surface)}
+  .empty svg{width:64px;height:64px;margin:0 auto 16px;display:block}
+  .empty strong{display:block;font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 112;font-size:1.3rem;margin-bottom:6px}
+
+  section + section.paper{border-top:1px solid var(--line)}
+
+  /* Footer */
+  footer{background:var(--black);color:#BDBDBD;padding:56px 0 64px;font-size:1rem;border-top:4px solid var(--wire)}
+  footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+  footer .brand{display:flex;align-items:center;gap:16px}
+  footer .brand svg{width:52px;height:52px;flex:none}
+  footer .wm{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;letter-spacing:.45em;color:#fff;font-size:.95rem}
+  footer .wm .rf{color:var(--wire)}
+  footer .tg{font-weight:300;font-size:.9rem}
+  footer a{color:#fff}
+  footer .meta{text-align:right}
+  @media (max-width:640px){footer .meta{text-align:left}}
+</style>
+</head>
+<body>
+
+<!-- Monogram, drawn once and reused. An approximation of the t-shirt logo;
+     swap in the original vector artwork if you find it. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="lf-inner"><circle cx="50" cy="50" r="37"/></clipPath>
+    <symbol id="lf-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48.5" fill="#B7E300" stroke="#9E4A47" stroke-width="2"/>
+      <circle cx="50" cy="50" r="37" fill="#9E4A47"/>
+      <g fill="#B7E300" clip-path="url(#lf-inner)">
+        <rect x="27" y="10" width="10" height="70"/>   <!-- L stem -->
+        <rect x="27" y="66" width="31" height="9"/>    <!-- L foot -->
+        <rect x="63" y="22" width="10" height="44"/>   <!-- reversed F stem -->
+        <rect x="41" y="22" width="32" height="9"/>    <!-- reversed F top arm -->
+        <rect x="49" y="43" width="24" height="9"/>    <!-- reversed F middle arm -->
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <nav aria-label="Sections">
+      <a href="#reunion">Reunion</a>
+      <a href="#share">Share</a>
+      <a href="#archive">Archive</a>
+      <a href="#tributes">Tributes</a>
+    </nav>
+    <div class="addr">10 Jackson Street&nbsp; San Francisco, California<br>Est. October 17, 1996</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Left Field logo"><g class="spin"><use href="#lf-mark"/></g></svg>
+    <p class="wordmark" aria-label="Left Field">LEFT<span class="rf">F</span>IELD</p>
+    <p class="tagline">Marketing for a Wired World<sup>™</sup></p>
+
+    <div class="thirty">
+      <span class="yr">1996</span>
+      <h1>30<span>years</span></h1>
+      <span class="yr">2026</span>
+    </div>
+
+    <p class="lead">On October 17, 1996, a small digital agency filed for a business license in San Francisco City Hall. <strong>Dozens of digital careers started there</strong>, among staff, clients, partners, and friends who were figuring out interactive marketing together.</p>
+    <p class="lead" style="margin-top:14px">Many lifelong business associations, and even more friendships were started there. This page is for them: to share a memory, reconnect, and see where everyone landed.</p>
+    <div class="actions">
+      <a class="btn btn-lime" href="#share">Share a tribute</a>
+      <a class="btn btn-ghost on-dark" href="#reunion">Join the reunion</a>
+    </div>
+  </div>
+  <div class="rule" aria-hidden="true"></div>
+</header>
+
+<main>
+  <section id="reunion" class="reunion">
+    <div class="wrap reunion-grid">
+      <div>
+        <span class="eyebrow">Online reunion</span>
+        <h2>Pull up a chair.<br>The whole team's back.</h2>
+        <p class="measure">Drop in any time. Share a memory in the main room, then catch up in small breakout rooms with the people you worked alongside. The main room will be recorded; breakout rooms won't be.</p>
+        <div class="actions">
+          <a class="btn btn-black" id="rsvp" href="#">RSVP on LinkedIn</a>
+          <a class="btn btn-ghost on-lime" id="gcal" href="#" target="_blank" rel="noopener">Google Calendar</a>
+          <a class="btn btn-ghost on-lime" id="ics" href="#" download="left-field-30-reunion.ics">Calendar file</a>
+        </div>
+      </div>
+      <div class="ticket">
+        <span class="label">Admit all · #LeftField30</span>
+        <p class="date">Saturday,<br>October 17, 2026</p>
+        <p class="time">12:00–1:30 p.m. PDT</p>
+        <p class="zones">3:00 p.m. EDT · 8:00 p.m. London<span id="localtime"></span></p>
+        <p class="where">On Google Meet · <a id="meet" href="#">join the call</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="share" class="paper">
+    <div class="wrap">
+      <span class="eyebrow">#LeftField30</span>
+      <h2>Share what Left Field<br>meant to you</h2>
+      <p class="measure">Anyone and everyone is welcome: former teammates, clients, partners, freelancers, even the competition. Every public post appears here.</p>
+      <ol class="steps">
+        <li><strong>Post on LinkedIn</strong>A short video (under a minute) or a few lines. A memory, a person, or where it led you.</li>
+        <li><strong>Add #LeftField30</strong>Tag <a id="profile" href="#">Michael McMahon</a> too, so your post doesn't get missed.</li>
+        <li><strong>Make it public</strong>Only public posts can be shown on this page.</li>
+      </ol>
+      <div class="aside measure">
+        <p><strong>Not on LinkedIn, or would rather not post?</strong> Email your video or note to <a id="email" href="#">the organizer</a> and it will be posted here with your permission.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="archive" class="archive">
+    <div class="wrap">
+      <span class="eyebrow">From the archive</span>
+      <h2>leftfield.net, circa 1998</h2>
+      <p class="intro measure">Most of the old site is gone, but the Wayback Machine kept a few pages, and somebody kept the t-shirt. Got more? Old decks, photos, business cards? Send them in.</p>
+      <div class="shots">
+        <a class="shot" href="https://web.archive.org/web/19980120000000/http://leftfield.net/" target="_blank" rel="noopener">
+          <div class="screen s98" aria-hidden="true">
+            <div class="frame"></div>
+            <div>Marketing for a Wired World™</div>
+          </div>
+          <div class="cap"><b>JAN 1998</b><span>The lime homepage ↗</span></div>
+        </a>
+        <a class="shot" href="https://web.archive.org/web/19991012123336/http://leftfield.net/" target="_blank" rel="noopener">
+          <div class="screen s99" aria-hidden="true">
+            <div class="wm">LEFT<span class="rf">F</span>IELD</div>
+            <div class="tg">Marketing for a Wired World</div>
+          </div>
+          <div class="cap"><b>OCT 1999</b><span>The "enhanced site" ↗</span></div>
+        </a>
+        <div class="shot" role="img" aria-label="The Left Field t-shirt: logo, wordmark and tagline">
+          <div class="screen sshirt">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#lf-mark"/></svg>
+            <div class="wm" aria-hidden="true">LEFT<span class="rf">F</span>IELD</div>
+            <div class="tg" aria-hidden="true">Marketing for a Wired World™</div>
+          </div>
+          <div class="cap"><b>THE T-SHIRT</b><span>Still in a drawer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tributes" class="paper">
+    <div class="wrap">
+      <div class="tributes-head">
+        <h2>Tributes</h2>
+        <span id="count"></span>
+      </div>
+      <div class="wall" id="wall">
+        <!-- ===================================================
+             PASTE NEW LINKEDIN EMBEDS DIRECTLY BELOW THIS LINE
+             (newest on top). Keep the height LinkedIn gives you;
+             width is handled by the page.
+             =================================================== -->
+
+        <div class="empty" id="empty">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#lf-mark"/></svg>
+          <strong>The first tributes are on their way.</strong>
+          <span class="muted">Post yours with #LeftField30 and it will show up here.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#lf-mark"/></svg>
+      <div>
+        <div class="wm">LEFT<span class="rf">F</span>IELD</div>
+        <div class="tg">Marketing for a Wired World™ · 1996–2026</div>
+      </div>
+    </div>
+    <div class="meta">Organized by <a id="profile2" href="#">Michael McMahon</a><br>#LeftField30 · <a href="https://github.com/afm528/leftfield30/edit/main/index.html">Edit this page on GitHub</a></div>
+  </div>
+</footer>
+
+<script>
+  // ===== Edit these four values =====
+  const CONFIG = {
+    linkedinEvent: "https://www.linkedin.com/events/REPLACE",
+    meetLink:      "https://meet.google.com/REPLACE",
+    profile:       "https://www.linkedin.com/in/REPLACE",
+    email:         "REPLACE@example.com"
+  };
+  // ===================================
+
+  const START = "20261017T190000Z", END = "20261017T203000Z"; // 12:00–1:30 PDT
+  const TITLE = "Left Field is 30: online reunion";
+  const DETAILS = "Join on Google Meet: " + CONFIG.meetLink + "\nShare a tribute with #LeftField30.";
+
+  document.getElementById("rsvp").href = CONFIG.linkedinEvent;
+  document.getElementById("meet").href = CONFIG.meetLink;
+  document.getElementById("profile").href = CONFIG.profile;
+  document.getElementById("profile2").href = CONFIG.profile;
+  const mail = document.getElementById("email");
+  mail.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("#LeftField30 tribute");
+  mail.textContent = CONFIG.email;
+
+  document.getElementById("gcal").href =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text=" + encodeURIComponent(TITLE) +
+    "&dates=" + START + "/" + END +
+    "&details=" + encodeURIComponent(DETAILS) +
+    "&location=" + encodeURIComponent(CONFIG.meetLink);
+
+  const ics = [
+    "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//LeftField30//EN","BEGIN:VEVENT",
+    "UID:leftfield30-reunion-20261017","DTSTAMP:20260929T000000Z",
+    "DTSTART:" + START,"DTEND:" + END,
+    "SUMMARY:" + TITLE,
+    "DESCRIPTION:" + DETAILS.replace(/\n/g, "\\n"),
+    "LOCATION:" + CONFIG.meetLink,"URL:" + CONFIG.meetLink,
+    "END:VEVENT","END:VCALENDAR"
+  ].join("\r\n");
+  document.getElementById("ics").href = URL.createObjectURL(new Blob([ics], {type:"text/calendar"}));
+
+  // Show the start time in the visitor's own time zone
+  try {
+    const t = new Date(Date.UTC(2026, 9, 17, 19, 0));
+    const local = t.toLocaleTimeString([], {hour:"numeric", minute:"2-digit", timeZoneName:"short"});
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if (!/Los_Angeles|New_York|London/.test(zone)) {
+      document.getElementById("localtime").textContent = " · Your time: " + local;
+    }
+  } catch (e) {}
+
+  // Tribute count and empty state
+  const n = document.querySelectorAll("#wall iframe").length;
+  if (n > 0) {
+    document.getElementById("empty").remove();
+    document.getElementById("count").textContent = n + (n === 1 ? " tribute so far" : " tributes so far");
+  }
+</script>
+</body>
+</html>
